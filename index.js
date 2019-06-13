@@ -13,36 +13,21 @@ require('dotenv').config();
 require('./config/dbconnection');
 
 app.use(cors());
-app.set('view engine', 'ejs');
 app.use(express.urlencoded({
     extended: false
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.use(cookieParser());
-// app.use(session({
-//     secret: process.env.SECRET_KEY,
-//     resave: false,
-//     saveUninitialized: false
-// }));
+const logger = require('morgan');
 
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(logger('dev'));
 
-// app.use((req, res, next) => {
-//     res.locals.user = req.user || null;
-//     next();
-// });
-
-app.use('/', require('./routes/index'));
+app.use('/api/test', require('./routes/api/test'));
 
 app.get('*', (req, res) => {
-    res.render('notfound');
+    res.status(200).json({message: 'notfound'});
 });
 
 app.listen(process.env.PORT, (err) => {

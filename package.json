@@ -12,8 +12,8 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^7.0.0",
-    "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mongoose": "^5.4.21"
+    "mongoose": "^5.4.21",
+    "morgan": "^1.9.1"
   }
 }
