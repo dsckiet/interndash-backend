@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 
 app.use('/api/users', require('./routes/api/user'));
+app.use('/api/organisations', require('./routes/api/organisation'));
+app.use('/api/internships', require('./routes/api/internship'));
 
 app.get('*', (req, res) => {
     res.status(200).json({message: 'notfound'});

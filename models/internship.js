@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const user = require('./user');
-const organization = require('./organization');
+const organisation = require('./organisation');
 
 const internshipSchema = new mongoose.Schema({
   postedBy: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
   title: {
@@ -16,17 +16,17 @@ const internshipSchema = new mongoose.Schema({
     required: true
   },
   organization: {
-    type: Schema.Types.ObjectId,
-    ref: 'organization'
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'organisation'
   },
   postedOn: {
     type: Date,
-    default: new Date()
+    default: Date.now
   },
   expiresOn: {
     type: Date,
     default: function(){
-      return this.postedOn.getMonth() + 2
+      return new Date(new Date(this.postedOn).getFullYear(), new Date(this.postedOn).getMonth() + 2, new Date(this.postedOn).getDate(), new Date(this.postedOn).getHours())
     }
   },
   location: {
@@ -36,6 +36,15 @@ const internshipSchema = new mongoose.Schema({
   stipend: {
     type: String,
     required: true
+  },
+  status: {
+    type: String,
+    require: true,
+    enum: ['active', 'inactive']
+  },
+  intern: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user'
   }
 }, {
   timestamps: true

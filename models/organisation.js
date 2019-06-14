@@ -3,7 +3,7 @@ const user = require('./user');
 
 const organizationSchema = new mongoose.Schema({
   mentor: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'user'
   },
   name: {
@@ -35,3 +35,5 @@ const organizationSchema = new mongoose.Schema({
 });
 
 module.exports = Organization = mongoose.model('organization', organizationSchema);
+
+// only admin and mentor can create organisations
