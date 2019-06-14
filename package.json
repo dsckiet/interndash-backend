@@ -2,9 +2,9 @@
   "name": "college-clubs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.4.21",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "nodemailer": "^6.2.1"
   }
 }

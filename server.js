@@ -15,7 +15,7 @@ app.use(express.urlencoded({
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-app.use('/api/test', require('./routes/api/test'));
+app.use('/api/users', require('./routes/api/user'));
 
 app.get('*', (req, res) => {
     res.status(200).json({message: 'notfound'});

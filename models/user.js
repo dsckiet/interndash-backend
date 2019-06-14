@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true, max: 255 },
     name: { type: String, required: true, max: 255 },
-    password: { type: String, required: true, max: 1024},
+    password: { type: String, required: true, max: 1024, min: 6},
     role: {type: String, enum: ["admin", "intern", "mentor"], required: true}
 });
 
