@@ -1,27 +1,18 @@
 const express = require("express");
-// const passport = require('passport');
 const path = require('path');
 const bodyParser = require('body-parser');
-// const cookieParser = require('cookie-parser');
-// const session = require('express-session');
-// require('./config/passport')(passport);
-
-const app = express();
-
+const logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 require('./config/dbconnection');
+const app = express();
 
 app.use(cors());
 app.use(express.urlencoded({
     extended: false
 }));
 // app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(bodyParser.json());
-
-const logger = require('morgan');
-
 app.use(logger('dev'));
 
 app.use('/api/test', require('./routes/api/test'));
