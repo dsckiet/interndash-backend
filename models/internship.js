@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
-const user = require('./user');
-const organisation = require('./organisation');
 
 const internshipSchema = new mongoose.Schema({
   postedBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'User'
   },
   title: {
     type: String,
@@ -15,9 +13,9 @@ const internshipSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  organization: {
+  organisation: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'organisation'
+    ref: 'Organisation'
   },
   postedOn: {
     type: Date,
@@ -44,10 +42,10 @@ const internshipSchema = new mongoose.Schema({
   },
   intern: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    ref: 'User'
   }
 }, {
   timestamps: true
 });
 
-module.exports = Internship = mongoose.model('internship', internshipSchema);
+module.exports = Internship = mongoose.model('Internship', internshipSchema);

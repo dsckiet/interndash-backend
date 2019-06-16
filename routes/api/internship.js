@@ -5,5 +5,6 @@ const auth = require('../../middleware/auth');
 const internshipController = require('../../controllers/internshipController');
 
 router.post('/', auth, internshipController.postInternship);
+router.get('/', internshipController.getInternships);
 
 module.exports = router;

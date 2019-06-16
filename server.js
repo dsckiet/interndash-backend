@@ -15,6 +15,7 @@ app.use(express.urlencoded({
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
+app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/users', require('./routes/api/user'));
 app.use('/api/organisations', require('./routes/api/organisation'));
 app.use('/api/internships', require('./routes/api/internship'));

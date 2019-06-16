@@ -25,6 +25,18 @@ const postInternship = async (req, res) => {
   }
 };
 
+const getInternships = async (req, res) => {
+  try {
+    let internships = await Internship.find()
+      .select('title stipend location')
+      .populate('organisation', 'name');
+
+    res.status(200).json({message: 'success', internships});
+  } catch (err) {
+    res.status(400).json({message: 'error', internships: null});
+  }
+}
+
 module.exports = {
-  postInternship
+  postInternship, getInternships
 }
