@@ -28,6 +28,10 @@ const organizationSchema = new mongoose.Schema({
   location: {
     type: String,
     required: true
+  },
+  website: {
+    type: String,
+    required: true
   }
 }, {
   timestamps: true

@@ -38,6 +38,14 @@ const loginUser = async (req, res) => {
   }
 }
 
+const getProfile = async (req, res) => {
+  try {
+    
+  } catch (err) {
+
+  }
+}
+
 module.exports = {
-  registerUser, loginUser
+  registerUser, loginUser, getProfile
 }
